@@ -21,7 +21,7 @@ services:
     working_dir: /app
     command: ["bun", "run", "preview"]
     volumes:
-      - ./frontend:/app  # Syncs your local frontend directory with the container
+      - ./frontend:/app
     environment:
       - NODE_ENV=production
       - PORT=4173
