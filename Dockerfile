@@ -1,20 +1,29 @@
-# Use the official Bun image as a parent image
+# Use Bun as the base image
 FROM oven/bun:latest
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and bun.lockb (if you have one)
-COPY package.json bun.lockb* ./
+# Copy package.json and bun.lockb (if exists) for both backend and frontend
+COPY backend/package.json backend/bun.lockb* ./backend/
+COPY frontend/package.json frontend/bun.lockb* ./frontend/
 
-# Install dependencies
-RUN bun install
+# Install dependencies for both
+RUN cd backend && bun install --production
+RUN cd frontend && bun install --production
 
-# Copy the rest of your app's source code
-COPY . .
+# Copy source code
+COPY backend ./backend
+COPY frontend ./frontend
 
-# Expose the port your app runs on
+# Build the frontend
+RUN cd frontend && bun run build
+
+# Copy the start script
+COPY start.js .
+
+# Expose the port the app runs on
 EXPOSE 3000
 
-# Run your app
-CMD ["bun", "run", "start"]
+# Start the application
+CMD ["bun", "run", "start.js"]
