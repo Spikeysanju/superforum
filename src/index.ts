@@ -62,4 +62,11 @@ app.get('/forum', (c) => {
   return c.json(forumPosts)
 })
 
+
+// delete all forum posts
+app.delete('/forum', (c) => {
+  forumPosts = []
+  return c.json({ message: 'All posts deleted' })
+})
+
 export default app
