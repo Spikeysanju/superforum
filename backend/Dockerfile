@@ -1,5 +1,5 @@
 # Use Bun as the base image
-FROM oven/bun:latest AS builder
+FROM oven/bun:latest
 
 # Set working directory
 WORKDIR /app
@@ -20,4 +20,4 @@ RUN bun run build
 EXPOSE 3000
 
 # Start the frontend
-CMD ["bun", "run", "start"]  
+CMD ["bun", "run", "start"]

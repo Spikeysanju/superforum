@@ -1,5 +1,5 @@
 # Use Bun as the base image
-FROM oven/bun:latest AS builder
+FROM oven/bun:latest
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ COPY . .
 RUN bun run build
 
 # Expose the port the app runs on
-EXPOSE 4173
+EXPOSE 3005
 
-# Set the command to run the SvelteKit preview server
-CMD ["bun", "preview"]
+# Set the command to run the SvelteKit app
+CMD ["bun", "run", "start"]
