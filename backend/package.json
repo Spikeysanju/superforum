@@ -1,7 +1,7 @@
 {
-  "name": "superforum",
+  "name": "backend",
   "version": "1.0.1",
-  "description": "A forum for the super",
+  "description": "A forum for the super cool",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
     "build": "bun build src/index.ts --target=bun --outfile=server.js",
