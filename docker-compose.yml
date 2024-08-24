@@ -19,9 +19,9 @@ services:
     ports:
       - "4173:4173"
     working_dir: /app
-    command: ["bun", "run", "preview"]
-    volumes:
-      - ./frontend:/app
+    command: ["bun", "preview"]
+    # volumes:
+    #   - ./frontend:/app
     environment:
       - NODE_ENV=production
       - PORT=4173

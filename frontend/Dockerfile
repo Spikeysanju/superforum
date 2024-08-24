@@ -17,4 +17,4 @@ RUN bun run build
 EXPOSE 4173
 
 # Set the command to run the SvelteKit preview server
-CMD ["bun", "run", "preview"]
+CMD ["bun", "preview"]
