@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    working_dir: /app
+    command: "bun run start"
+    volumes:
+      - ./backend:/app
+    environment:
+      - NODE_ENV=production
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173"
+    working_dir: /app
+    command: ["bun", "run", "preview"]
+    volumes:
+      - ./frontend:/app  # Do not mount the node_modules folder to avoid conflicts
+    environment:
+      - NODE_ENV=production
+      - PORT=4173

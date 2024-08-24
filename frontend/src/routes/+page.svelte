@@ -7,7 +7,7 @@
 
 	onMount(async () => {
 		try {
-			const response = await fetch('https://forum.sanju.sh/forum');
+			const response = await fetch('http://localhost:3000/api/forum');
 			if (!response.ok) {
 				throw new Error('API request failed');
 			}
