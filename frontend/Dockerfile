@@ -1,23 +1,25 @@
 # Use Bun as the base image
-FROM oven/bun:latest AS builder
+FROM oven/bun:latest
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy package.json and bun.lockb* for frontend
 COPY package.json bun.lockb* ./
 
-# Remove existing node_modules (if any) and install dependencies
-RUN rm -rf node_modules && bun install
+# Install dependencies
+RUN bun install
 
-# Copy the rest of your application
+
+# Copy the frontend source code
 COPY . .
 
-# Build the SvelteKit app
+# Build the frontend in production mode
 RUN bun run build
 
 # Expose the port the app runs on
-EXPOSE 4173
+EXPOSE 5173
 
-# Set the command to run the SvelteKit preview server
+# Start the frontend in preview mode
 CMD ["bun", "run", "preview"]
+

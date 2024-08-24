@@ -21,7 +21,7 @@ services:
     working_dir: /app
     command: ["bun", "run", "preview"]
     volumes:
-      - ./frontend:/app  # Do not mount the node_modules folder to avoid conflicts
+      - ./frontend:/app  # Syncs your local frontend directory with the container
     environment:
       - NODE_ENV=production
       - PORT=4173
