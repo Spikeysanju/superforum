@@ -4,7 +4,7 @@ import { spawn } from 'child_process';
 const backend = spawn('bun', ['run', 'backend/index.js'], { stdio: 'inherit' });
 
 // Start the frontend
-const frontend = spawn('bun', ['run', 'frontend/build'], { stdio: 'inherit' });
+const frontend = spawn('bun', ['run', 'frontend/build/index.js'], { stdio: 'inherit' });
 
 // Handle process exit
 process.on('SIGTERM', () => {

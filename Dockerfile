@@ -8,9 +8,11 @@ WORKDIR /app
 COPY backend/package.json backend/bun.lockb* ./backend/
 COPY frontend/package.json frontend/bun.lockb* ./frontend/
 
-# Install dependencies for both
+# Install dependencies for backend
 RUN cd backend && bun install --production
-RUN cd frontend && bun install --production
+
+# Install ALL dependencies for frontend (including dev dependencies)
+RUN cd frontend && bun install
 
 # Copy source code
 COPY backend ./backend
@@ -18,6 +20,9 @@ COPY frontend ./frontend
 
 # Build the frontend
 RUN cd frontend && bun run build
+
+# Clean up frontend dev dependencies
+RUN cd frontend && bun install --production
 
 # Copy the start script
 COPY start.js .
