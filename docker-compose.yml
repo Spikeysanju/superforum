@@ -1,24 +1,14 @@
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ghcr.io/spikeysanju/superforum-backend:main
     ports:
       - "3000:3000"
-    working_dir: /app
-    command: "bun run start"
-    volumes:
-      - ./backend:/app
     environment:
       - NODE_ENV=production
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: ghcr.io/spikeysanju/superforum-frontend:main
     ports:
       - "3005:3005"
-    working_dir: /app
-    command: ["bun", "run", "start"]
     environment:
       - NODE_ENV=production
