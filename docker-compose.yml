@@ -4,7 +4,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3000:3004"
     working_dir: /app
     command: "bun run start"
     volumes:
@@ -17,7 +17,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "4173:4173"
+      - "4173:3005"
     working_dir: /app
     command: ["bun", "preview"]
     # volumes:
