@@ -1,16 +1,16 @@
 import { Hono } from 'hono'
-import { cors } from 'hono/cors'
+// import { cors } from 'hono/cors'
 const app = new Hono().basePath('/api')
 
-app.use(
-  '/api/*',
-  cors({
-    origin: 'http://localhost:5173',
-    allowMethods: ['POST', 'GET', 'PUT', 'DELETE'],
-    allowHeaders: ['Content-Type', 'Accept'],
-    maxAge: 86400
-  })
-)
+// app.use(
+//   '/api/*',
+//   cors({
+//     origin: 'http://localhost:5173',
+//     allowMethods: ['POST', 'GET', 'PUT', 'DELETE'],
+//     allowHeaders: ['Content-Type', 'Accept'],
+//     maxAge: 86400
+//   })
+// )
 
 // Dummy data
 let forumPosts = [
