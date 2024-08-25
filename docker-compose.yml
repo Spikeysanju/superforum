@@ -1,13 +1,13 @@
 services:
   backend:
-    image: ghcr.io/spikeysanju/superforum-backend:main
+    image: ghcr.io/spikeysanju/superforum-backend:latest
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
 
   frontend:
-    image: ghcr.io/spikeysanju/superforum-frontend:main
+    image: ghcr.io/spikeysanju/superforum-frontend:latest
     ports:
       - "3005:3005"
     environment:
